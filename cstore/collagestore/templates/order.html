@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+order form
+{% endblock %}
+
+{% block title %}
+Order
+{% endblock %}
+
+{% block content %}
+<div class="order container">
+    <div class=" p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold text-center">Order Form</h1>
+            <p class="col-md-8 fs-4">
+            <form method="POST" enctype="multipart/form-data" id="orderForm"
+                  data-courses-url="{% url 'collagestoreapp:ajax_get_courses' %}" action="{% url 'collagestoreapp:order' %}">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col">
+                        {{ form.name.errors }}
+                        {{ form.name.label_tag }}
+                        {{ form.name }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        {{ form.date_of_birth.errors }}
+                        {{ form.date_of_birth.label_tag }}
+                        {{ form.date_of_birth }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        {{ form.age.errors }}
+                        {{ form.age.label_tag }}
+                        {{ form.age }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        {{ form.gender.errors }}
+                        {{ form.gender.label_tag }}
+                        {{ form.gender }}
+
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        {{ form.department.errors }}
+                        {{ form.department.label_tag }}
+                        {{ form.department }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        {{ form.course.errors }}
+                        {{ form.course.label_tag }}
+                        {{ form.course }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        {{ form.purposer.errors }}
+                        {{ form.purpose.label_tag }}
+                        {{ form.purpose }}
+
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        {{ form.phone_number.errors }}
+                        {{ form.phone_number.label_tag }}
+                        {{ form.phone_number }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        {{ form.email.errors }}
+                        {{ form.email.label_tag }}
+                        {{ form.email }}
+
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col">
+                        {{ form.address.errors }}
+                        {{ form.address.label_tag }}
+                        {{ form.address }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        {{ form.materials.errors }}
+                        {{ form.materials.label_tag }}
+                        {{ form.materials }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <button class="btn btn-primary btn-block" type="submit">Submit order</button>
+                    </div>
+                </div>
+            </form>
+            </p>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <script>
+    $("#id_department").change(function () {
+      var url = $("#orderForm").attr("data-courses-url");
+      var departmentId = $(this).val();
+      $.ajax({
+        url: url,
+        data: {
+          'department': departmentId
+        },
+        success: function (data) {
+          $("#id_course").html(data);
+        }
+      });
+
+    });
+
+
+
+
+
+
+
+            </script>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

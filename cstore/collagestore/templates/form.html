@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+home page
+{% endblock %}
+
+{% block title %}
+EduStore
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<div class=" p-5 mb-4 bg-light rounded-3">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Place Order</h1>
+        <p class="col-md-8 fs-4">Place your order or send for a enquiry</p>
+        <a href="{% url 'collagestoreapp:order' %}"><button class="btn btn-primary btn-block" type="button">Place order</button></a>
+      </div>
+    </div>
+</div>
+
+
+
+
+{% if successful %}
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Order Sucess</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Order has been successfully creted
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+        $(document).ready(function(){
+            $("#staticBackdrop").modal('show');
+        });
+
+</script>
+
+{% endif %}
+{% endblock %}

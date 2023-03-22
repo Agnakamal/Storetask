@@ -1,0 +1,25 @@
+body{
+background-color:#ffffff;
+}
+
+.navbar{
+background-color:#576F72;
+}
+
+.card{
+background-color:#ffffff;
+}
+
+.container{
+background: url("../images/second.png");
+background-repeat: repeat;
+padding:25%;
+}
+
+.order.container{
+padding:10px;
+}
+.card button{
+background-color:#576F72;
+border-color: #7D9D9C;
+}

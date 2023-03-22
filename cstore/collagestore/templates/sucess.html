@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+Sucess form submition
+{% endblock %}
+
+{% block title %}
+sucess
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class=" p-5 mb-4 bg-light rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Sucess</h1>
+            <p class="col-md-8 fs-4">Your order or enquiry has been successfully received. we will contact you soon. </p>
+            <p class="text-center">Thankyou</p>
+            <a href="{% url 'collagestoreapp:home1' %}">
+                <button class="btn btn-primary btn-block" type="button">Back to home</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
